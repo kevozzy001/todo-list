@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400&family=Roboto:ital@1&display=swap');
+
+:root{
+    --prime-color: rgb(74, 183, 255);
+    --prime-color-darker: rgb(47, 136, 195);
+    --title-color:rgb(231, 231, 231);
+    --light-color:rgb(255, 255, 255);
+    --dark-color:rgb(11, 133, 255);
+    --warning-color:rgb(255, 35, 35);
+    --text-color:black;
+    --text-color-lighter:rgb(80, 80, 80);
+
+    --big-font-size:2.25rem;
+    --h1-font-size:2rem;
+    --h2-font-size:1.75rem;
+    --h3-font-size:1.6rem;
+    --normal-font-size:1.5rem;
+    --small-font-size:1rem;
+
+    --mb-0-25:.25rem;
+    --mb-0-5:.5rem;
+    --mb-0-75:.75rem;
+    --mb-1:1rem;
+    --mb-1-5:1.5rem;
+    --mb-2:2rem;
+    --mb-2-5:2.5rem;
+    --mb-3:3rem;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-color: var(--prime-color);
+}
+
+.header{
+    font-size: var(--big-font-size);
+    background-color: var(--prime-color);
+    margin-bottom: var(--mb-0-5);
+    margin-top: var(--mb-1);
+    font-weight: 700;
+}
+
+/*============= Main body =============*/
+
+.task-list{
+    margin: 1rem;
+    min-width: 90%;
+    background-color: rgb(255, 255, 255);
+    font-size: var(--normal-font-size);
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.task-header{
+    display: flex;
+    font-size: var(--h2-font-size);
+    background-color: var(--prime-color);
+    background-color: rgb(231, 231, 231);
+    justify-content: space-between;
+    width: 100%;
+    padding: .75rem 1rem;
+    align-items: center;
+    min-height: 35px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.task-header p{
+    font-size: var(--small-font-size);
+}
+
+.remaining-count{
+    font-size: var(--normal-font-size);
+    margin-right: var(--mb-0-5);
+}
+
+.sort-order, #sort-order{
+    font-size: var(--small-font-size);
+}
+
+#sort-order{
+    padding: .25rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: rgba(84, 84, 84, 0.7);
+    color: white;
+}
+
+#sort-order:focus{
+    outline: none;
+}
+
+.tasks{
+    min-height: 200px;
+    max-height: 350px;
+    overflow: scroll;
+}
+
+.task{
+    padding: 1rem 1rem 0 1rem;
+    margin-bottom: var(--mb-1-5);
+    color: var(--text-color-lighter);
+}
+
+.task label{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.task label::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background-color: var(--text-color-lighter);
+    bottom: -30%;
+    transition: .2s;
+    transform-origin: center;
+    opacity: .3;
+}
+
+.task label::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    left: 1.75rem;
+    height: 3px;
+    background-color: var(--text-color-lighter);
+    bottom: -30%;
+    opacity: .4;
+    display: none;
+}
+
+[type="checkbox"]:checked + label::before{
+    display: block;
+}
+
+[type="checkbox"]:checked + label .task-name{
+    opacity: .4;
+}
+
+.new-task{
+    margin-top: var(--mb-0-5);
+    margin-left: var(--mb-1);
+}
+
+.new-task form{
+    display: flex;
+    align-items: center;
+}
+
+.new-task input{
+    font-size: var(--normal-font-size);
+    width: 70%;
+    border: 0;
+    padding: .25rem 0 .25rem .5rem;
+    border-bottom: 2px solid grey;
+}
+
+[type="checkbox"]{
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-checkbox{
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    display: inline-block;
+    cursor: pointer;
+    border:2px solid var(--text-color-lighter);
+    margin-right: var(--mb-1);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox{
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+    box-shadow: inset 0 0 0 2px white;
+}
+
+.deleteBx{
+    background-color: var(--title-color);
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    font-size: var(--small-font-size);
+    border-radius: 0 0 1rem 1rem;
+}
+
+.remove-complete, .remove-list{
+    background-color:rgba(84, 84, 84, 0.7);
+    color: white;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.nav-btn{
+    display: flex;
+    width: 100%;
+    padding: .5rem 2rem .5rem; 
+    justify-content: space-between;
+    margin: 0 2rem;
+    position: absolute;
+    bottom: 0;
+    font-size: 2rem;
+    background-color: var(--text-color);
+    color: var(--prime-color);
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+}
+
+/*============= Create Menu =============*/
+
+.create-menu{
+    background-color: var(--title-color);
+    padding: 3rem;
+    border-radius: 2rem 2rem 0 0;
+    position: fixed;
+    bottom: -100%;
+    transition: .3s ease-out;
+    z-index: 100;
+}
+
+.create-menu form{
+    display: flex;
+    align-items: center;
+}
+
+.create-menu input{
+    padding: .25rem .25rem .25rem .5rem;
+    font-size: var(--smaller-font-size);
+    width: 300px;
+    border: 0;
+    border-radius: 1rem;
+}
+
+input:focus {
+    outline: none !important;
+    border:2px solid var(--prime-color);
+    box-shadow: 0 0 2px var(--prime-color);
+  }
+
+.new-task input:focus{
+    border: none;
+    box-shadow: none;
+    border-bottom: 2px solid grey;
+}
+.btn{
+    font-size: 2rem;
+    border:none;
+    background-color: transparent;
+    font-weight: 700;
+    margin-left: 1rem;
+}
+
+/*============= All lists =============*/
+
+.all-lists{
+    background-color: var(--text-color);
+    font-weight: 400;
+    padding:0 3rem;
+    border-radius: 2rem;
+    position: fixed;
+    bottom: 1rem;
+    width: 100%;
+    height: 85%;
+    color: white;
+    transition: .3s ease-out;
+    overflow: auto;
+    scroll-behavior: smooth;
+    bottom: -100%;
+}
+
+.list-title{
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+    padding: 2rem 0 .5rem;
+    margin-bottom: var(--mb-1);
+    position: sticky; 
+    top: 0;
+    background-color: var(--text-color);
+}
+
+.all-lists li{
+    margin-bottom: var(--mb-1);
+    font-size: var(--normal-font-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--prime-color);
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+
+.list-name:hover{
+    transform:scale(1.05);
+    background-color: rgb(31, 151, 231);
+    transition: .2s;
+}
+
+.close{
+    font-size: 2rem;
+    font-weight: 600;
+    color: red;
+}
+
+.show-create{
+    bottom: 50px;
+}
+
+.show-list-menu{
+    bottom: 0;
+}
+
+.active-list{
+    border: 3px solid rgb(195, 255, 0);
+    color: rgb(195, 255, 0);
+}
+
+/*==================== Modals ==========================*/
+
+.modal{
+    position: absolute;
+    width: 60%;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.modal h3{
+    background-color: var(--text-color-lighter);
+    color: white;
+    font-size: var(--normal-font-size);
+    padding: 1rem;
+}
+
+.btn-flex{
+    display: flex;
+    justify-content: flex-end;
+    padding: .5rem .25rem .5rem .25rem;
+}
+
+.confirm{
+    font-size: var(--small-font-size);
+    padding: .5rem;
+    background-color: rgb(0, 192, 0);
+    font-weight: 600;
+    border: none;
+    border-radius: .25rem;
+    margin-right: .5rem;
+    color: white;
+}
+
+.cancel{
+    font-size: var(--small-font-size);
+    padding: .5rem;
+    background-color: rgb(239, 163, 0);
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: .25rem;
+    margin-right: .5rem;
+    margin-left: .5rem;
+}
+
+
+/*==================== Effects ==========================*/
+
+.task:hover .custom-checkbox{
+    transform: scale(1.2);
+    border-color: var(--dark-color);
+    transition: .2s;
+}
+
+.new-task input::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--dark-color);
+    height: 2px;
+}
+
+.new-task input:hover,
+.new-task input:focus{
+    
+}
+
+.btn:hover{
+    transform: scale(1.25);
+    transition: .2s;
+    color: var(--dark-color);
+}
+
+#sort-order:hover, .remove-complete:hover, .remove-list:hover{
+    background-color: var(--dark-color);
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+.open-menu:hover, .login:hover, .open-list:hover{
+    color: var(--dark-color);
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+.confirm-delete-list:hover, .cancel:hover{
+    transform: scale(1.15);
+    transition: .2s;
+}
+
+.modal-shadow{
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+}
+
+@media screen and (max-width:320px) {
+    :root{
+        --big-font-size:1.75rem;
+        --h1-font-size:1.5rem;
+        --h2-font-size:1.25rem;
+        --h3-font-size:1.1rem;
+        --normal-font-size:.9rem;
+        --small-font-size:.75rem;
+    }
+}

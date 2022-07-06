@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4f24fde7d4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section>
+        <header class="header">My list of things to do</header>
+        <div class="task-list">
+            <div class="task-header">
+                <h2 class="task-title">Youtube</h2>
+                <div>
+                    <p><span class="remaining-count">3</span> 
+                        tasks remaining</p>
+                    <div class="sort">
+                        <label for="sort-order" class="sort-order">Sort by:</label>
+                        <select name="sort-order" id="sort-order">
+                            <option value="Default">Default</option>
+                            <option value="Due date">Due date</option>
+                            <option value="Alphabet">Due date</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="new-task">
+                <form action="" class="form">
+                <input type="text" name="" id="" class="task-input"
+                placeholder="new task name">
+                <button class="btn create-task-btn button"><i class="fa-solid fa-plus "></i></button>
+                </form>
+            </div>
+
+            <div class="todo-body">
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" id="task-1">
+                        <label for="task-1">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-name">Do homework</span> 
+                        </label>
+                    </div>
+
+                    <div class="task">
+                        <input type="checkbox" id="task-2">
+                        <label for="task-2">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-name">Do homework</span> 
+                        </label>
+                    </div>
+
+                    <div class="task">
+                        <input type="checkbox" id="task-4">
+                        <label for="task-4">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-name">Do homework</span> 
+                        </label>
+                    </div>
+                </div>
+
+                <div class="deleteBx">
+                    <div class="remove-complete">Remove completed tasks</div>
+                    <div class="remove-list">Delete list</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="create-menu">
+            <form action="" class="form">
+                <input type="text" placeholder="new list name" 
+                class="new-list" id="">
+                <button class="btn create-list button"><i class="fa-solid fa-plus create-list-icon"></i></button>
+            </form>
+        </div>
+
+        <div class="all-lists">
+            <h2 class="list-title">My project lists</h2>
+            <ul>
+               <!-- <li class="list-name active-list">
+                    <h3>list item 2</h3>
+                    <div><i class="fa-solid fa-xmark close"></i></div>
+                </li>
+                <li class="list-name">
+                    <h3>list item 2</h3>
+                    <div><i class="fa-solid fa-xmark close"></i></div>
+                </li>
+                <li class="list-name">
+                    <h3>list item 2</h3>
+                    <div><i class="fa-solid fa-xmark close"></i></div>
+                </li>
+            -->
+            </ul>
+        </div>
+
+        <div class="nav-btn">
+            <div class="open-menu">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div class="login">
+                <i class="fa-solid fa-user"></i>
+            </div>
+           
+            <div class="open-list">
+                <i class="fa-solid fa-list"></i>
+            </div>
+        </div>
+
+        <div class="modal delete-list-modal">
+            <h3>Are you sure you want to delete this list?</h3>
+            <div class="btn-flex">
+                <button class="confirm confirm-delete-list button">Confirm</button>
+                <button class="cancel">Cancel</button>
+            </div>
+        </div>
+
+        <div class="modal-shadow">
+
+        </div>
+    </section>
+</body>
+<script src="main.js"></script>
+</html>
